@@ -18,67 +18,63 @@
 </head>
 
 <!--Jumbotron Header-->
-
 <body>
-  <div class="container-xl">
-    <div class="jumbotron text-center">
-      <font size="16"><strong>Mission to Mars</strong></font><br>
-      <font size="10">Data Scraping Assignment</font>
+  	<div class="container-xl">
+    	<div class="jumbotron text-center">
+      		<font size="16"><strong>Mission to Mars</strong></font><br>
+      		<font size="10">Data Scraping Assignment</font>
       <p><br><a class="btn btn-primary btn-lg" href="/scrape" role="button">Import Data</a></p>
     </div>
-
 <!--End Jumbotron Header-->
-	<div>
-		<h2>Mars Headline:</h2>
-    	<font size="6"><strong>{{ mars.article_title }}</strong></font>
-		<p>{{ mars.article_paragraph }}</p>
+
+	<div class = "row">
+		<div><h1><strong>Mars - Latest Headline:<strong></h1>
+    		<font size="6"><strong>{{ mars.article_title }}</strong></font>
+			<p><font size="3">{{ mars.article_paragraph }}</font></p>
+		</div>
 	</div>
 
-	<div class="container-xxl">
-		<div class = "row">
-			<div class="col-lg-6">
-				<h4><strong>Featured Mars Image<strong></h4>
-				<img src="{{ mars.feature_image_url }}" alt="Featured Image">
-			</div>
+	<div class = "row">
+		<div class="col-lg-6">
+			<img src="{{ mars.feature_image_url }}" alt="Featured Image">
+			<h4><strong>Featured Image of Mars<strong></h4>
+		</div>
 		
-			<div class="col-lg-1">
+		<div class="col-lg-1">
 			</div>
-
-			
 			
 			<div class="col-lg-5 float-right">
-				<br><br>
-				<h4><strong>Mars - The Red Planet:</strong></h4>
-        		<h5>Mars Statistics and Facts</h5>
-				<table class="table table-striped" border="2" style="width:100%">
+			
+				<h2><strong>Mars - The Red Planet:</strong></h2>
+        			<h5>Statistics and Facts</h5>
 					<div>{{ mars.mars_statistics | safe }}
-					</div>
-						
-					
-				
+					</div>				
 			</div>
 		</div>
   	</div>
-	<br>
-	<!-- END OF CONTAINER -->
-
-
-	<div class="container-xl">
-		<h2><strong>Mars Hemispheres</strong></h2>
-		<div class="card-deck">
-			{% for i in mars.image_urls_hemispheres %}
-			<div class="card">
-				<img class="card-img-top" src="{{ i['img_url'] }}" alt="{{ i['title']}}" >
-				<div class="card-body">
-					<h5 class="card-title"><strong>{{ i['title']}}</strong></h5>
-				</div>
-			</div>
-			{% endfor %} 
-		</div>	
+	
+	<div class="row">
+		<div class="col-md-12">
+			<h2>Hemispheres of Mars</h2>
+			<hr>
+		</div>
 	</div>
-	<footer style="margin: 50px;">
-		<hr class="mt-2 mb-3"/>
-	</footer>
+
+	<!-- 'For Loop' through dictionary to get 4 different hemisphere images. -->
+
+		{% for hemisphere in mars.image_urls_hemispheres %}
+		<div class="col-lg-3">
+			<div align="center">
+				<a href="{{ hemisphere.img_url }}" target="_blank">
+					<img src="{{ hemisphere.img_url }}" alt="{{ hemisphere.title }}" width="100%">
+				</a>
+			</div>
+			<div>
+				<h5 align="center">{{ hemisphere.title }}</h5>
+			</div>
+		</div>
+		{% endfor %}
+	</div>  
  </div>
 </body>
 

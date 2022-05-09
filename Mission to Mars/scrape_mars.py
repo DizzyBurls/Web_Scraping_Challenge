@@ -87,17 +87,16 @@ def scrape_info():
 
     hemispheres_list=[]
 
-    # Use a for loop to scrape data and append list.
-   
     for i in range(len(data_to_scrape)):
+    
         hemisphere_url = url + data_to_scrape[i].a['href']
         browser.visit(hemisphere_url)
         html = browser.html
         High_Res_soup = BeautifulSoup(html, "html.parser")
         hemisphere_title = High_Res_soup.find('h2', class_="title").text
-        hemisphere_img_url = hemisphere_url + High_Res_soup.find_all('img')[4]['src']
+        hemisphere_img_url = url + High_Res_soup.find_all('img')[4]['src']
     
-        hemispheres_list.append({'title': hemisphere_title, 'img_url': hemisphere_img_url})
+    hemispheres_list.append({'title': hemisphere_title, 'img_url': hemisphere_img_url})
 
     browser.quit()
 

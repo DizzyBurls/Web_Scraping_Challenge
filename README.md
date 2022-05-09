@@ -15,7 +15,7 @@ c) The project folder: Mission to Mars.
 
 The latter contains files:
 
-1) app.py      2) Mission_to_Mars.ipynb       3) scrape_mars.py       4) A templates folder
+(1) app.py      (2) Mission_to_Mars.ipynb       (3) scrape_mars.py       (4) A templates folder
 
 The latter contains a file called index.html
   

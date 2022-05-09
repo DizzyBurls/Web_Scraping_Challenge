@@ -36,11 +36,11 @@ See screen captures 1 - 6 which I have uploaded to this repository. They show ma
 
 ![alt text](Screen_Captures/Screen_Capture_3-Featured_Image.png)
 
-4) A statistics table about Mars.
+4) A statistics table about Mars from 'https://galaxyfacts-mars.com/.
 
 ![alt text](Screen_Captures/Screen_Capture_4-Statistics_Table.png)
 
-5) Thumbnail links to 4 high-resolution hemisphere pictures of Mars.
+5) Thumbnail links to 4 high-resolution hemisphere pictures of Mars from https://marshemispheres.com/.
 
 ![alt text](Screen_Captures/Screen_Capture_5-Hemisphere_Thumbnails.png)
 

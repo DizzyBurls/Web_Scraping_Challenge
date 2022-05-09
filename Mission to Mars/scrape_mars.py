@@ -96,7 +96,7 @@ def scrape_info():
         hemisphere_title = High_Res_soup.find('h2', class_="title").text
         hemisphere_img_url = url + High_Res_soup.find_all('img')[4]['src']
     
-    hemispheres_list.append({'title': hemisphere_title, 'img_url': hemisphere_img_url})
+        hemispheres_list.append({'title': hemisphere_title, 'img_url': hemisphere_img_url})
 
     browser.quit()
 
@@ -109,3 +109,8 @@ def scrape_info():
         "image_urls_hemispheres": hemispheres_list
     }
     return scrape_data
+
+if __name__ == "__main__":
+
+    # If running as script, print scraped data
+    print(scrape_info())

@@ -7,74 +7,65 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mission to Mars</title>
   <link rel="stylesheet"  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-  <style type="text/css"> -->
-	 <!-- .tab { margin-left: 40px; } -->
-	</style>
 </head>
 
 <!--Jumbotron Header-->
 <body>
-  	<div class="container-xl">
+  	<div class="container">
     	<div class="jumbotron text-center">
-      		<font size="16"><strong>Mission to Mars</strong></font><br>
+      		<font size="16" style="color:rgb(62, 50, 16)"><strong>Mission to Mars</strong></font><br>
       		<font size="10">Data Scraping Assignment</font>
       <p><br><a class="btn btn-primary btn-lg" href="/scrape" role="button">Import Data</a></p>
     </div>
-<!--End Jumbotron Header-->
+
+
+<!--Main Table-->
 
 	<div class = "row">
-		<div><h1><strong>Mars - Latest Headline:<strong></h1>
-    		<font size="6"><strong>{{ mars.article_title }}</strong></font>
-			<p><font size="3">{{ mars.article_paragraph }}</font></p>
+		<div class="col-md-7">
+			<div><h1 style="color:rgb(19, 61, 40)"><strong>MARS - LATEST HEADLINE:<strong></h1>
+    			<br><font size="6" style="color:rgb(47, 87, 69)"><strong>{{ mars.article_title }}</strong></font><br>
+				<br><p><font size="3" style="color:rgb(63, 170, 123)">{{ mars.article_paragraph }}</font></p>
+			</div>
 		</div>
-	</div>
 
-	<div class = "row">
-		<div class="col-lg-6">
-			<img src="{{ mars.feature_image_url }}" alt="Featured Image">
-			<h4><strong>Featured Image of Mars<strong></h4>
-		</div>
+		<div class="col-md-1"></div>
+
 		
-		<div class="col-lg-1">
-			</div>
-			
-			<div class="col-lg-5 float-right">
-			
-				<h2><strong>Mars - The Red Planet:</strong></h2>
-        			<h5>Statistics and Facts</h5>
-					<div>{{ mars.mars_statistics | safe }}
-					</div>				
-			</div>
+		<div class="col-md-4 float-right">
+			<h2 style="color:rgb(98, 22, 22)"><strong>Mars - The Red Planet:</strong></h2>
+			<h5 style="color:rgb(135, 52, 52)">Statistics and Facts</h5>
+			<div class="table table-striped" style="background-color:rgb(200, 215, 206)">{{ mars.mars_statistics | safe }}
+			</div>				
 		</div>
-  	</div>
+	
+	<div class = "row">
+		<div class="col-md-8">
+			<img src="{{ mars.feature_image_url }}" alt="Featured Image">
+				<h4><strong>Featured Image of Mars<strong></h4>
+			</div>
+		</div>	
+	</div>
 	
 	<div class="row">
 		<div class="col-md-12">
-			<h2>Hemispheres of Mars</h2>
+			<h2 style="color:rgb(51, 38, 135)">Hemispheres of Mars</h2>
 			<hr>
 		</div>
 	</div>
 
 	<!-- 'For Loop' through dictionary to get 4 different hemisphere images. -->
 
-		{% for hemisphere in mars.image_urls_hemispheres %}
-		<div class="col-lg-3">
-			<div align="center">
-				<a href="{{ hemisphere.img_url }}" target="_blank">
-					<img src="{{ hemisphere.img_url }}" alt="{{ hemisphere.title }}" width="100%">
-				</a>
-			</div>
-			<div>
-				<h5 align="center">{{ hemisphere.title }}</h5>
-			</div>
+	{% for hemisphere in mars.image_urls_hemispheres %}
+	<div class="col-md-3">
+		<div align="left">
+			<a href="{{ hemisphere.img_url }}" target="_blank", style="color:rgb(16, 103, 233)">
+				<img src="{{ hemisphere.img_url }}" alt="{{ hemisphere.title }}" width="100%">
+				<h5 align="left">{{ hemisphere.title }}</h5>
+			</a>	
 		</div>
-		{% endfor %}
-	</div>  
+	</div>
+	{% endfor %}
  </div>
 </body>
 
